@@ -27,7 +27,16 @@ class ScheduledRepayment extends Model
      * @var array
      */
     protected $fillable = [
-        //
+         'loan_id',
+        'amount',
+        'due_date',
+        'paid_amount',
+        'is_paid',
+    ];
+
+    protected $casts = [
+        'due_date' => 'date',
+        'is_paid' => 'boolean',
     ];
 
     /**
@@ -39,4 +48,5 @@ class ScheduledRepayment extends Model
     {
         return $this->belongsTo(Loan::class, 'loan_id');
     }
+    
 }
